@@ -114,6 +114,8 @@ const Cards = () => {
       setAdd(false);
   }, [add]);
 
+  console.log(apiData)
+
   return (
     <>
       <Button

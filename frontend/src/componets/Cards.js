@@ -21,7 +21,6 @@ const Cards = () => {
   const handleShow = () => setShow(true);
   let randomID = Math.floor(Math.random() * 200);
  
-
   const [newData, setNewData] = useState({
     rule_id: randomID,
     title: "",
@@ -30,6 +29,7 @@ const Cards = () => {
     rules: "",
     blurb_content: ""
   });
+  
 
   // add new data
 
@@ -63,6 +63,7 @@ const Cards = () => {
 
 
   let updateData = () => {
+   
     const data = {
       title: title,
       page_name: pageName,
@@ -86,7 +87,7 @@ const Cards = () => {
       })
       .then(function (data) {
         setapiData(data)
-        setAdd(false)
+        setAdd(true)
         // console.log(data);
       });
   };
@@ -149,6 +150,7 @@ const Cards = () => {
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                   type="text"
+                  autoComplete='off'
                   onChange={(e) =>
                     setNewData((item) => ({ ...item, title: e.target.value }))
                   }
@@ -161,6 +163,7 @@ const Cards = () => {
                 <Form.Label>Page URL</Form.Label>
                 <Form.Control
                   type="text"
+                  autoComplete='off'
                   onChange={(e) =>
                     setNewData((item) => ({
                       ...item,
@@ -176,6 +179,7 @@ const Cards = () => {
                 <Form.Label>Page Name</Form.Label>
                 <Form.Control
                   type="text"
+                  autoComplete='off'
                   onChange={(e) =>
                     setNewData((item) => ({
                       ...item,
@@ -191,6 +195,7 @@ const Cards = () => {
                 <Form.Label>Label</Form.Label>
                 <Form.Control
                   type="text"
+                  autoComplete='off'
                   onChange={(e) =>
                     setNewData((item) => ({ ...item, rules: e.target.value }))
                   }
@@ -203,6 +208,7 @@ const Cards = () => {
                 <Form.Label>Blurb Content</Form.Label>
                 <Form.Control
                   type="text"
+                  autoComplete='off'
                   onChange={(e) =>
                     setNewData((item) => ({
                       ...item,
@@ -242,6 +248,7 @@ const Cards = () => {
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                   type="text"
+                  autoComplete='off'
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                 />
@@ -253,6 +260,7 @@ const Cards = () => {
                 <Form.Label>Page Name</Form.Label>
                 <Form.Control
                   type="text"
+                  autoComplete='off'
                   value={pageName}
                   onChange={(e) => setPageName(e.target.value)}
                 />
@@ -264,6 +272,7 @@ const Cards = () => {
                 <Form.Label>Label</Form.Label>
                 <Form.Control
                   type="text"
+                  autoComplete='off'
                   value={label}
                   onChange={(e) => setLabel(e.target.value)}
                 />
@@ -289,8 +298,8 @@ const Cards = () => {
               variant="success"
               onClick={() => {
                 updateData();
-                setAdd(true)
                 handleClose();
+                setAdd(true)
               }}
             >
               Save
